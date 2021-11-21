@@ -27,8 +27,8 @@ function anyconnect(){
 }
 
 function exitanyc(){
-	pkill vpnui
-	pkill vpn
+	sudo pkill vpnui
+	sudo pkill vpn
 #	resetwifi
 }
 
@@ -53,6 +53,9 @@ function ret () { cat /tmp/cvm_terminalout; }
 
 alias open=xdg-open
 alias nautilus="nautilus ."
+alias vscode="code"
+alias term="gnome-terminal"
 function openall(){
 	ls -1 | while read myfile ; do xdg-open "$myfile" ; done
 }
+
