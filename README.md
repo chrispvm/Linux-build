@@ -4,4 +4,6 @@
 
 make install: installs everything
 
-make grabbashrc: copy the bashrc from the current pc to this repository
+make pullbashrc: copy the bashrc from the current pc to this repository
+
+make pushbashrc: opposite of pullbashrc
