@@ -4,7 +4,7 @@ run:
 	@echo "To install this, command make install"
 
 install: 
-	@bash install.sh
+	@bash installall.sh
 
 installbashrc:
 	@sudo bash installbashrc.sh
