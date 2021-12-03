@@ -3,6 +3,7 @@ if [[ $(/usr/bin/id -u) -ne 0 ]]; then
     exit
 fi
 bash ./programs-install.sh
+bash ./vscodesetup.sh
 bash ./setdefaults.sh
 #bash ./eduroam-oxford-setup.sh
 bash ./setup_bashrc.sh
