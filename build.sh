@@ -5,3 +5,4 @@ fi
 bash ./programs-install.sh
 bash ./setdefaults.sh
 #bash ./eduroam-oxford-setup.sh
+bash ./setup_bashrc.sh

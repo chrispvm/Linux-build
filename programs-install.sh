@@ -19,8 +19,6 @@ upgrade_aptget(){
 	echo "==== Starting apt update/upgrade"
 	echo "=================================================="
 	apt update -y && apt upgrade -y
-#	echo "==== Starting apt-get update/upgrade"
-#	apt-get update -y && apt-get upgrade -y
 	echo "=================================================="
 	echo "==== Starting apt-get autoremove"
 	apt-get autoremove -y
@@ -28,14 +26,10 @@ upgrade_aptget(){
 	echo "==== Finished apt-get update/upgrade & autoremove"
 	echo "=================================================="
 }
-#install_with_wget() {  }
-#set_default_application() {  }
 
 #Start installing
 cd /home/chris/Downloads
 echo "==== Starting installation from $PWD"
-# apt full-upgrade
-# do-release-upgrade
 upgrade_aptget
 
 #Curl
@@ -73,7 +67,7 @@ startmessage "git"
 apt install git
 endmessage "git"
 
-
+# github
 startmessage "github gcmcore"
 if ! command_exists git-credential-manager-core ; then
 	curl -sSL https://packages.microsoft.com/config/ubuntu/21.04/prod.list | tee /etc/apt/sources.list.d/microsoft-prod.list
@@ -115,8 +109,6 @@ endmessage "Signal"
 #vscode
 startmessage "vscode"
 if ! command_exists code; then
-#	wget https://go.microsoft.com/fwlink/?LinkID=760868
-#	apt install ./code_
 	apt install software-properties-common apt-transport-https
 	apt-mark auto software-properties-common apt-transport-https
 	wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
@@ -169,24 +161,30 @@ endmessage "pycharm"
 #endmessage "Cisco AnyConnect"
 
 
-#Adding some aliases
-string="if [ -f ~/.bash_aliases ]; then
-. ~/.bash_aliases
-fi"
 
-
+#===================================================================
+# APT INSTALLS
 apt install qbittorrent -y
 apt install vlc -y
 apt install trash-cli -y
 apt install htop -y
 apt install vim -y
 apt install neovim -y
-apt install pcregrep -y
+apt install pcregrep -y #not sure if I actually use this
 #apt-get install compiz compizconfig-settings-manager compiz-plugins
 apt install texlive-full -y
-apt install default-jre -y
-apt install php7.4-cli -y
+apt install default-jre -y #JAVA runtime environment. Not sure if I need it.
+#apt install php7.4-cli -y #not using this
 apt install nautilus-dropbox -y
+apt install tree -y
+apt install nautilus-open-terminal -y # Am I using this currently?
+
+#pdf editing
+apt install img2pdf
+apt install poppler-utils -y #probably already installed. For cli pdf editing
+
+#arduino
+#apt install arduino-cli -y
 
 
 #Shell Extensions:
