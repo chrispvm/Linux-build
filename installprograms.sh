@@ -1,8 +1,8 @@
 if [[ $(/usr/bin/id -u) -ne 0 ]]; then
-    echo "programs-setup.sh must be run as root. Try sudo bash programs-setup.sh. Exiting."
+    echo "$0 must be run as root. Try sudo bash $0. Exiting."
     exit
 fi
-echo "==== Executing programs-setup.sh from $PWD"
+echo "==== Executing $0 from $PWD"
 
 #Setup
 command_exists () { 
@@ -28,11 +28,12 @@ upgrade_aptget(){
 }
 
 #Start installing
+dir=$PWD
 cd /home/chris/Downloads
 echo "==== Starting installation from $PWD"
 upgrade_aptget
 
-#Curl
+#Curl (first, because needed to install rest)
 startmessage "curl"
 apt install curl -y
 endmessage "curl"
@@ -142,12 +143,13 @@ fi
 endmessage "exa"
 
 #pycharm
-startmessage "pycharm"
-if ! command_exists pycharm; then
-	wget https://www.jetbrains.com/pycharm/download/download-thanks.html?platform=linux&code=PCC
-	tar –xvzf pycharm-community-2021.2.3.tar.gz
-fi
-endmessage "pycharm"
+# installing this with a snap now, below
+#startmessage "pycharm"
+#if ! command_exists pycharm-community; then
+#	wget https://www.jetbrains.com/pycharm/download/download-thanks.html?platform=linux&code=PCC
+#	tar –xvzf pycharm-community-2021.2.3.tar.gz
+#fi
+#endmessage "pycharm"
 
 #Cisco Anyconnect
 # Gave up on this because they use an indirect download link.
@@ -177,7 +179,7 @@ apt install default-jre -y #JAVA runtime environment. Not sure if I need it.
 #apt install php7.4-cli -y #not using this
 apt install nautilus-dropbox -y
 apt install tree -y
-apt install nautilus-open-terminal -y # Am I using this currently?
+apt install nautilus-open-terminal-here -y # Am I using this currently?
 
 #pdf editing
 apt install img2pdf
@@ -200,9 +202,10 @@ apt install nvidia-cuda-toolkit -y
 apt install nvtop -y
 
 
-#Default filetypes
-xdg-mime default vlc.desktop video/mkv
-
 #Finished
 upgrade_aptget
 apt-get clean
+
+# go back to original directory
+cd $dir
+echo "currently in directory $PWD"
