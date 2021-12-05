@@ -60,13 +60,12 @@ endmessage "gyazo"
 
 #Tilde
 startmessage "tilde"
-apt install tilde -y
 endmessage "tilde"
 
 # Git
 startmessage "git"
-apt install git
-endmessage "git"
+
+ndmessage "git"
 
 # github
 startmessage "github gcmcore"
@@ -164,42 +163,18 @@ endmessage "exa"
 
 
 
-#===================================================================
-# APT INSTALLS
-apt install qbittorrent -y
-apt install vlc -y
-apt install trash-cli -y
-apt install htop -y
-apt install vim -y
-apt install neovim -y
-apt install pcregrep -y #not sure if I actually use this
-#apt-get install compiz compizconfig-settings-manager compiz-plugins
-apt install texlive-full -y
-apt install default-jre -y #JAVA runtime environment. Not sure if I need it.
-#apt install php7.4-cli -y #not using this
-apt install nautilus-dropbox -y
-apt install tree -y
-apt install nautilus-open-terminal-here -y # Am I using this currently?
+# Take the packages.txt file, remove all comments, spaces, and empty lines, 
+# then pass each line via xargs to apt install.
+sed -e "s/\#[^\n]*//" -e "s/ //g" -e "/^$/d" packages.txt | xargs -I% apt install % -y
 
-#pdf editing
-apt install img2pdf
-apt install poppler-utils -y #probably already installed. For cli pdf editing
-
-#arduino
-#apt install arduino-cli -y
-
-
-#Shell Extensions:
-apt install gnome-shell-extension-no-annoyance
-gnome-extensions enable noannoyance@sindex.com
 
 #snaps
 yes | snap install pycharm-community --classic
 yes | snap install gh
 
-#cuda toolkit for pytorch with GPU:
-apt install nvidia-cuda-toolkit -y
-apt install nvtop -y
+
+
+
 
 
 #Finished

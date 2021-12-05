@@ -8,3 +8,4 @@ bash ./setupvscode.sh
 sudo bash ./setdefaults.sh
 #bash ./setup_eduroam_oxford.sh
 sudo bash ./installbashrc.sh
+sudo bash ./setsettings.sh

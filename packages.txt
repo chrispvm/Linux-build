@@ -1,0 +1,41 @@
+# Use hashtags # to comment. Everything else will be put into apt install with xargs.
+
+qbittorrent 
+vlc 
+trash-cli 
+htop 
+vim 
+neovim 
+pcregrep  #not sure if I actually use this
+compiz 
+compizconfig-settings-manager 
+compiz-plugins
+texlive-full 
+default-jre  #JAVA runtime environment. Not sure if I need it.
+php7.4-cli  #not using this
+nautilus-dropbox 
+tree 
+# nautilus-open-terminal-here  # Am I using this currently?
+tilde 
+git
+
+
+#pdf editing
+img2pdf
+poppler-utils  #probably already installed. For cli pdf editing
+
+#arduino
+# arduino-cli 
+
+
+#Shell Extensions:
+gnome-shell-extension-no-annoyance
+
+
+#cuda toolkit for pytorch with GPU:
+nvidia-cuda-toolkit 
+nvtop 
+
+
+
+
