@@ -38,6 +38,20 @@ startmessage "curl"
 apt install curl -y
 endmessage "curl"
 
+# Take the packages.txt file, remove all comments, spaces, and empty lines, 
+# then pass each line via xargs to apt install.
+sed -e "s/\#[^\n]*//" -e "s/ //g" -e "/^$/d" packages.txt | xargs -I% apt install % -y
+
+#snaps
+yes | snap install pycharm-community --classic
+yes | snap install gh
+yes | snap install signal-desktop
+
+
+
+
+
+
 #Chrome
 startmessage "chrome"
 if ! command_exists google-chrome
@@ -80,10 +94,9 @@ endmessage "skype"
 
 
 #Signal
-startmessage "Signal"
-if ! command_exists signal-desktop
-then
-	yes | snap install signal-desktop
+#startmessage "Signal"
+#if ! command_exists signal-desktop
+#then
 #	# 1. Install our official public software signing key	
 #	yes | wget -O- https://updates.signal.org/desktop/apt/keys.asc | gpg --dearmor > signal-desktop-keyring.gpg
 #	cat signal-desktop-keyring.gpg | tee -a /usr/share/keyrings/signal-desktop-keyring.gpg > /dev/null
@@ -94,8 +107,8 @@ then
 #
 #	# 3. Update your package database and install signal
 #	apt update && sudo apt install signal-desktop
-fi
-endmessage "Signal"
+#fi
+#endmessage "Signal"
 
 #vscode
 startmessage "vscode"
@@ -150,24 +163,6 @@ endmessage "exa"
 #	rm anyconnect-linux64-4.10.00093-predeploy-k9.tar.gz
 #fi
 #endmessage "Cisco AnyConnect"
-
-startmessage "Dropbox"
-if ! command_exists dropbox; then
-	cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
-	~/.dropbox-dist/dropboxd
-fi
-endmessage "Dropbox"
-
-# Take the packages.txt file, remove all comments, spaces, and empty lines, 
-# then pass each line via xargs to apt install.
-sed -e "s/\#[^\n]*//" -e "s/ //g" -e "/^$/d" packages.txt | xargs -I% apt install % -y
-
-
-#snaps
-yes | snap install pycharm-community --classic
-yes | snap install gh
-
-
 
 
 
