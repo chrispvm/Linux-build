@@ -29,6 +29,7 @@ compiz-plugins
 #pdf editing
 img2pdf
 poppler-utils  #probably already installed. For cli pdf editing
+evince
 
 #arduino
 # arduino-cli 
@@ -36,6 +37,7 @@ poppler-utils  #probably already installed. For cli pdf editing
 
 # virtual machines
 virtualbox-qt
+cpu-checker
 
 #==============================
 #SLOW AND NON-URGENT PACKAGES
