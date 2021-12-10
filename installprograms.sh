@@ -58,15 +58,6 @@ if ! command_exists gyazo; then
 fi
 endmessage "gyazo"
 
-#Tilde
-startmessage "tilde"
-endmessage "tilde"
-
-# Git
-startmessage "git"
-
-ndmessage "git"
-
 # github
 startmessage "github gcmcore"
 if ! command_exists git-credential-manager-core ; then
