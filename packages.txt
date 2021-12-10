@@ -18,6 +18,7 @@ tree
 # nautilus-open-terminal-here  # Am I using this currently?
 tilde 
 git
+git-credential-manager-core
 make
 
 #pdf editing
