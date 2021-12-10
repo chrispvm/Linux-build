@@ -82,6 +82,15 @@ if ! command_exists git-credential-manager-core ; then
 fi
 endmessage "github gcmcore"
 
+startmessage "github cli"
+if !command_exists gh ; then
+	curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
+	echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+	sudo apt update
+	sudo apt install gh
+fi
+endmessage "github cli"
+
 #Skype
 startmessage "Skype"
 if ! command_exists skypeforlinux
