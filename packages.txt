@@ -1,26 +1,30 @@
 # Use hashtags # to comment. Everything else will be put into apt install with xargs.
 
+
+#===============================
+#ESSENTIAL PACKAGES
+vim 
+neovim
+tilde 
+tree 
+nautilus-dropbox 
+htop 
+git
+#git-credential-manager-core #This just doesn't work for some reason: E: Unable to locate package git-credential-manager-core
+make
+
+#===============================
+#OTHER PACKAGES
 qbittorrent 
 vlc 
 trash-cli 
-htop 
-vim 
-neovim 
 pcregrep  #not sure if I actually use this
 compiz 
 compizconfig-settings-manager 
 compiz-plugins
-texlive-full 
-default-jre  #JAVA runtime environment. Not sure if I need it.
-php7.4-cli  #not using this
-nautilus-dropbox 
-tree 
+#default-jre  #JAVA runtime environment. Not sure if I need it.
+#php7.4-cli  #not using this
 # nautilus-open-terminal-here  # Am I using this currently?
-tilde 
-git
-git-credential-manager-core
-make
-nautilus-dropbox
 
 #pdf editing
 img2pdf
@@ -30,16 +34,18 @@ poppler-utils  #probably already installed. For cli pdf editing
 # arduino-cli 
 
 
-#Shell Extensions:
-gnome-shell-extension-no-annoyance
+# virtual machines
+virtualbox-qt
 
+#==============================
+#SLOW AND NON-URGENT PACKAGES
+texlive-full 
 
 #cuda toolkit for pytorch with GPU:
 nvidia-cuda-toolkit 
 nvtop 
 
-# virtual machines
-virtualbox-qt
 
-
+#Shell Extensions:
+gnome-shell-extension-no-annoyance
 

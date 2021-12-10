@@ -40,7 +40,15 @@ endmessage "curl"
 
 # Take the packages.txt file, remove all comments, spaces, and empty lines, 
 # then pass each line via xargs to apt install.
-sed -e "s/\#[^\n]*//" -e "s/ //g" -e "/^$/d" packages.txt | xargs -I% apt install % -y
+
+echo "======================================================="
+echo "==== Starting apt install packages"
+echo "======================================================="
+sed -e "s/\#[^\n]*//" -e "s/ //g" -e "/^$/d" $dir/packages.txt | xargs -t -I% apt install % -y
+echo "======================================================="
+echo "==== Finished apt install packages"
+echo "======================================================="
+
 
 #snaps
 yes | snap install pycharm-community --classic
