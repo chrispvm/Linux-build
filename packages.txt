@@ -18,7 +18,7 @@ tree
 # nautilus-open-terminal-here  # Am I using this currently?
 tilde 
 git
-
+make
 
 #pdf editing
 img2pdf
@@ -36,6 +36,8 @@ gnome-shell-extension-no-annoyance
 nvidia-cuda-toolkit 
 nvtop 
 
+# virtual machines
+virtualbox-qt
 
 
 
