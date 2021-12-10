@@ -100,14 +100,13 @@ endmessage "Signal"
 #vscode
 startmessage "vscode"
 if ! command_exists code; then
-	apt install software-properties-common apt-transport-https
+	apt install software-properties-common apt-transport-https -y
 	apt-mark auto software-properties-common apt-transport-https
 	wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
 	install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
 	sh -c 'echo "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
 	apt install code
 	rm packages.microsoft.gpg
-
 fi
 endmessage "vscode"
 
@@ -127,7 +126,7 @@ endmessage "expressvpn"
 startmessage "exa"
 if ! command_exists exa ; then
 	wget http://archive.ubuntu.com/ubuntu/pool/universe/r/rust-exa/exa_0.9.0-4_amd64.deb
-	apt install ./exa_0.9.0-4_amd64.deb
+	apt install ./exa_0.9.0-4_amd64.deb -y
 	rm ./exa_0.9.0-4_amd64.deb
 fi
 endmessage "exa"
@@ -152,7 +151,12 @@ endmessage "exa"
 #fi
 #endmessage "Cisco AnyConnect"
 
-
+startmessage "Dropbox"
+if ! command_exists dropbox; then
+	cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
+	~/.dropbox-dist/dropboxd
+fi
+endmessage "Dropbox"
 
 # Take the packages.txt file, remove all comments, spaces, and empty lines, 
 # then pass each line via xargs to apt install.
