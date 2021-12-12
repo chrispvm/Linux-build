@@ -51,3 +51,6 @@ nvtop
 #Shell Extensions:
 gnome-shell-extension-no-annoyance
 
+
+python3
+jupyter-core

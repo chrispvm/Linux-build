@@ -55,7 +55,16 @@ alias open=xdg-open
 alias nautilus="nautilus ."
 alias vscode="code"
 alias term="gnome-terminal"
+alias python="python3"
 function openall(){
 	ls -1 | while read myfile ; do xdg-open "$myfile" ; done
 }
 
+bash /home/chris/.pythonpathsrc.sh
+
+
+
+function cvmaddalias () {
+	echo "alias $1=$2" >> $(pwd)/cvm_bashrc.sh
+	echo $(pwd)
+}
