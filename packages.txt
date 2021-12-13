@@ -54,3 +54,6 @@ gnome-shell-extension-no-annoyance
 
 python3
 jupyter-core
+mlocate
+
+libreoffice

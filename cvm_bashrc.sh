@@ -1,12 +1,9 @@
 #!/bin/bash
 
-function cvmsetup() {
-	sudo bash /home/chris/Dropbox/Linux-setup/setup.sh
-}
+sourcedir=WILLBEREPLACED
 
 function mynotebooks() {
-	cd ~
-	cd Dropbox/programming/ML/PycharmProjects/CvmML/notebooks
+	cd ~/Dropbox/programming/ML/PycharmProjects/CvmML/notebooks
 	jupyter notebook
 }
 
@@ -14,7 +11,6 @@ function resetwifi(){
 	nmcli networking off
 	nmcli networking on
 }
-
 
 function anyconnectgui(){
 #	expressvpn disconnect
@@ -51,20 +47,36 @@ function cap () { tee /tmp/cvm_terminalout; }
 
 function ret () { cat /tmp/cvm_terminalout; }
 
+function openall(){
+	ls -1 | while read myfile ; do xdg-open "$myfile" ; done
+}
+
+
+function cvmaddpackage () {
+	sudo apt install $1 -y && echo "$1" >> $sourcedir/packages.txt
+}
+function cvmremovepackage () {
+	sudo apt remove $1 -y
+	sed -i "s/$1//" $sourcedir/packages.txt
+}
+function cvmaddalias () {
+	echo "alias $1=$2" >> $(pwd)/.cvm_bashrc.sh
+	echo $(pwd)
+}
+function cvmgitpush () {
+	dir=$(pwd)
+	cd $sourcedir
+	git add .
+	git commit -m "autocommit"
+	git push
+	cd $dir
+}
+
+bash /home/chris/.pythonpathsrc.sh
+
 alias open=xdg-open
 alias nautilus="nautilus ."
 alias vscode="code"
 alias term="gnome-terminal"
 alias python="python3"
-function openall(){
-	ls -1 | while read myfile ; do xdg-open "$myfile" ; done
-}
 
-bash /home/chris/.pythonpathsrc.sh
-
-
-
-function cvmaddalias () {
-	echo "alias $1=$2" >> $(pwd)/cvm_bashrc.sh
-	echo $(pwd)
-}
