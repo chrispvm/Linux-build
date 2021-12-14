@@ -57,3 +57,7 @@ jupyter-core
 mlocate
 
 libreoffice
+jupyter-notebook
+python3-pip
+fzf
+parallel

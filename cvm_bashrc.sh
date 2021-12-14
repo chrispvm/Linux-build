@@ -3,8 +3,8 @@
 sourcedir=WILLBEREPLACED
 
 function mynotebooks() {
-	cd ~/Dropbox/programming/ML/PycharmProjects/CvmML/notebooks
-	jupyter notebook
+	cd ~/Dropbox/programming/ML/PycharmProjects/cvmml/notebooks
+	jupyter notebook 
 }
 
 function resetwifi(){
@@ -60,8 +60,7 @@ function cvmremovepackage () {
 	sed -i "s/$1//" $sourcedir/packages.txt
 }
 function cvmaddalias () {
-	echo "alias $1=$2" >> $(pwd)/.cvm_bashrc.sh
-	echo $(pwd)
+	echo "alias $1=$2" >> $sourcedir/cvm_bashrc.sh
 }
 function cvmgitpush () {
 	dir=$(pwd)
@@ -72,7 +71,7 @@ function cvmgitpush () {
 	cd $dir
 }
 
-bash /home/chris/.pythonpathsrc.sh
+source /home/chris/.pythonpathsrc.sh
 
 alias open=xdg-open
 alias nautilus="nautilus ."

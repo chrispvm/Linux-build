@@ -4,28 +4,8 @@ if [[ $(/usr/bin/id -u) -ne 0 ]]; then
 fi
 echo "==== Executing $0 from $PWD"
 
-#Setup
-command_exists () { 
-	type "$1" &> /dev/null ; 
-}
-startmessage()	 { 
-	echo "==== Started installing $1" 
-}
-endmessage()	 { 
-	echo "==== Finished installing $1" 
-}
-upgrade_aptget(){
-	echo "=================================================="
-	echo "==== Starting apt update/upgrade"
-	echo "=================================================="
-	apt update -y && apt upgrade -y
-	echo "=================================================="
-	echo "==== Starting apt-get autoremove"
-	apt-get autoremove -y
-	echo "=================================================="
-	echo "==== Finished apt-get update/upgrade & autoremove"
-	echo "=================================================="
-}
+source ./tools.sh
+
 
 #Start installing
 dir=$PWD
@@ -44,7 +24,8 @@ endmessage "curl"
 echo "======================================================="
 echo "==== Starting apt install packages"
 echo "======================================================="
-sed -e "s/\#[^\n]*//" -e "s/ //g" -e "/^$/d" $dir/packages.txt | xargs -t -I% apt install % -y
+cleancomments $dir/packages.txt | xargs -t -I% apt install % -y
+#sed -e "s/\#[^\n]*//" -e "s/ //g" -e "/^$/d" $dir/packages.txt | xargs -t -I% apt install % -y
 echo "======================================================="
 echo "==== Finished apt install packages"
 echo "======================================================="
@@ -181,8 +162,15 @@ endmessage "exa"
 #fi
 #endmessage "Cisco AnyConnect"
 
+if ! exists_command conda; then
+	wget https://repo.anaconda.com/archive/Anaconda3-2021.11-Linux-x86_64.sh -O ~/Downloads/Anaconda.sh
+	sudo apt install libgl1-mesa-glx libegl1-mesa libxrandr2 libxrandr2 libxss1 libxcursor1 libxcomposite1 libasound2 libxi6 libxtst6 -y
+	sudo chmod +x Anaconda.sh
+	./Anaconda.sh
+fi
 
-
+#install python packages
+bash $dir/installpythonpackages.sh
 
 #Finished
 upgrade_aptget

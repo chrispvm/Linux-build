@@ -1,2 +1,2 @@
 
-export PYTHONPATH="${PYTHONPATH}:/home/chris/Dropbox/programming/ML/PycharmProjects/"
+export PYTHONPATH="${PYTHONPATH}:/home/chris/Dropbox/programming/ML/"

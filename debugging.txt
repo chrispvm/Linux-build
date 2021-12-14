@@ -9,3 +9,5 @@ E: Unable to locate package gcmcore
 
 
 need to add cntrl q closes window
+
+conda installation is currently not working automatically because installing conda is not immediately adding the conda command.
