@@ -3,7 +3,7 @@
 sourcedir=WILLBEREPLACED
 
 function mynotebooks() {
-	cd ~/Dropbox/programming/ML/PycharmProjects/cvmml/notebooks
+	cd ~/Dropbox/programming/ML/cvmdl/notebooks
 	jupyter notebook 
 }
 

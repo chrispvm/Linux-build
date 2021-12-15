@@ -19,4 +19,3 @@ string="\n#CUSTOM BASHRC BY CVM\nsource $homefolder/.cvm_bashrc.sh\n"
 if ! pcregrep -qM "$stringsmall" /home/chris/.bashrc; then
 	printf  "$string" >> /home/chris/.bashrc
 fi
-

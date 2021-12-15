@@ -28,3 +28,10 @@ cleancomments (){
 #       
 #}
 
+appendifnotthere (){
+	if ! pcregrep -qM "$1" $2; then
+		printf  "$1" >> $2 
+	fi
+}
+
+export -f command_exists startmessage endmessage upgrade_aptget cleancomments appendifnotthere
