@@ -1,4 +1,5 @@
-#Setup
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+
 command_exists () { 
         type "$1" &> /dev/null ; 
 }
@@ -32,6 +33,17 @@ appendifnotthere (){
 	if ! pcregrep -qM "$1" $2; then
 		printf  "$1" >> $2 
 	fi
+}
+
+installconfig() {
+	dir=$(dirname $1)
+	base=$(basename $1)
+	cp -r $SCRIPT_DIR/configs/$base $dir/$base
+}
+pullconfig() {
+	dir=$(dirname $1)
+	base=$(basename $1)
+	cp -r $dir/$base $SCRIPT_DIR/configs/$base
 }
 
 export -f command_exists startmessage endmessage upgrade_aptget cleancomments appendifnotthere

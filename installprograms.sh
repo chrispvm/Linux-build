@@ -14,9 +14,7 @@ echo "==== Starting installation from $PWD"
 upgrade_aptget
 
 #Curl (first, because needed to install rest)
-startmessage "curl"
 apt install curl -y
-endmessage "curl"
 
 # Take the packages.txt file, remove all comments, spaces, and empty lines, 
 # then pass each line via xargs to apt install.
@@ -166,11 +164,8 @@ if ! exists_command conda; then
 	wget https://repo.anaconda.com/archive/Anaconda3-2021.11-Linux-x86_64.sh -O ~/Downloads/Anaconda.sh
 	sudo apt install libgl1-mesa-glx libegl1-mesa libxrandr2 libxrandr2 libxss1 libxcursor1 libxcomposite1 libasound2 libxi6 libxtst6 -y
 	sudo chmod +x Anaconda.sh
-	./Anaconda.sh
+	~Downloads/Anaconda.sh
 fi
-
-#install python packages
-bash $dir/installpythonpackages.sh
 
 #Finished
 upgrade_aptget

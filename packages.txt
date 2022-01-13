@@ -61,3 +61,5 @@ jupyter-notebook
 python3-pip
 fzf
 parallel
+pipenv
+baobab

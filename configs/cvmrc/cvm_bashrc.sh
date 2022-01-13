@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sourcedir=WILLBEREPLACED
+sourcedir=/home/chris/Downloads/Linux-build
 
 function mynotebooks() {
 	cd ~/Dropbox/programming/ML/cvmdl/notebooks
@@ -71,7 +71,7 @@ function cvmgitpush () {
 	cd $dir
 }
 
-source /home/chris/.pythonpathsrc.sh
+source $HOME/.config/cvmrc/pythonpathsrc.sh
 
 alias open=xdg-open
 alias nautilus="nautilus ."
@@ -79,3 +79,10 @@ alias vscode="code"
 alias term="gnome-terminal"
 alias python="python3"
 
+#alias search="((xdg-open \"\$(fzf)\" & disown) >> /dev/null) & disown && exit"
+
+function search(){
+	file=$(fzf)
+	xdg-open "$file" & disown
+	#exit
+}

@@ -1,19 +1,17 @@
-.PHONY: run install pushbashrc pullbashrc installbashrc
+.PHONY: run install pullconfigs installbashrc
 
 run: 
-	@echo "To install this, command make install"
+	@echo "To install this, command make install. This will overwrite all config paths added to this repo."
 
 install: 
 	@bash installall.sh
 
+pullconfigs:
+	@bash pullconfigs.sh
+
 installbashrc:
-	@sudo bash installbashrc.sh
+	@bash installbashrc.sh
 
-#pushbashrc:
-#	@sudo cp $(shell pwd)/cvm_bashrc.sh /home/chris/.cvm_bashrc.sh
 
-pullbashrc:
-	@sudo cp /home/chris/.cvm_bashrc.sh $(shell pwd)/cvm_bashrc.sh
-	echo $(shell pwd)/cvm_bashrc.sh
 
 
