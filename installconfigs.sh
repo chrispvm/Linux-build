@@ -9,11 +9,26 @@ echo "============================================"
 
 homeusr=$HOME
 echo "home user directory: $homeusr"
-
+echo "copying over config files"
 cp -r $SCRIPT_DIR/configs/bspwm $homeusr/.config/bspwm
 cp -r $SCRIPT_DIR/configs/cvmrc $homeusr/.config/cvmrc
 cp -r $SCRIPT_DIR/configs/sxhkd $homeusr/.config/sxhkd
 cp -r $SCRIPT_DIR/configs/nvim $homeusr/.config/nvim
+
+
+
+
+#ADD A CALL TO THE .cvm_bashrc.sh FILE TO THE .bashrc FILE
+echo "Adding a call to the .cvm_bashrc.sh file to the .bashrc file"
+# I have stringsmall here because the \n causes problems with the conditional
+stringsmall="source $HOME/.config/cvmrc/cvm_bashrc.sh"
+string="\n#CUSTOM BASHRC BY CVM\nsource $HOME/.config/cvmrc/cvm_bashrc.sh\n"
+if ! pcregrep -qM "$stringsmall" $HOME/.bashrc; then
+        printf  "$string" >> $HOME/.bashrc
+fi
+
+
+sed -i "s@sourcedir\=WILLBEREPLACED@sourcedir\=$(pwd)@" $HOME/.config/cvmrc/.cvm_bashrc.sh
 
 
 

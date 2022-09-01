@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sourcedir=/home/chris/Downloads/Linux-build
+sourcedir=WILLBEREPLACED
 
 function mynotebooks() {
 	cd ~/Dropbox/programming/ML/cvmdl/notebooks
@@ -78,7 +78,7 @@ alias nautilus="nautilus ."
 alias vscode="code"
 alias term="gnome-terminal"
 alias python="python3"
-
+alias ls="ls --color --group-directories-first"
 #alias search="((xdg-open \"\$(fzf)\" & disown) >> /dev/null) & disown && exit"
 
 function search(){
