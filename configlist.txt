@@ -1,4 +1,0 @@
-/home/chris/.config/bspwm
-/home/chris/.config/cvmrc
-/home/chris/.config/sxhkd
-/home/chris/.config/nvim
