@@ -13,10 +13,10 @@ upgrade_aptget(){
         echo "=================================================="
         echo "==== Starting apt update/upgrade"
         echo "=================================================="
-        apt update -y && apt upgrade -y
+        sudo apt update -y && sudo apt upgrade -y
         echo "=================================================="
         echo "==== Starting apt-get autoremove"
-        apt-get autoremove -y
+        sudo apt-get autoremove -y
         echo "=================================================="
         echo "==== Finished apt-get update/upgrade & autoremove"
         echo "=================================================="
@@ -48,7 +48,7 @@ pullconfig() {
 }
 aptinstallpackage() {
         startmessage $1
-        apt install $1
+        sudo apt install $1
 }
 
 export -f command_exists startmessage endmessage upgrade_aptget cleancomments appendifnotthere pullconfig aptinstallpackage

@@ -12,7 +12,7 @@ else
 fi
 
 bash ./installbashrc.sh
-sudo bash ./installprograms.sh
+bash ./installprograms.sh
 if [ $setconfs == "y" ]; then
 	bash ./installconfigs.sh
 fi

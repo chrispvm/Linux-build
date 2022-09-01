@@ -1,19 +1,19 @@
-if [[ $(/usr/bin/id -u) -ne 0 ]]; then
-    echo "$0 must be run as root. Try sudo bash $0. Exiting."
-    exit
-fi
+#if [[ $(/usr/bin/id -u) -ne 0 ]]; then
+#    echo "$0 must be run as root. Try sudo bash $0. Exiting."
+#    exit
+#fi
 echo "==== Executing $0 from $PWD"
 
 source ./tools.sh
 
 #Start installing
 dir=$PWD
-cd /home/chris/Downloads
+cd /tmp 
 echo "==== Starting installation from $PWD"
 upgrade_aptget
 
 #Curl (first, because needed to install rest)
-apt install curl -y
+sudo apt install curl -y
 
 # Take the packages.txt file, remove all comments, spaces, and empty lines, 
 # then pass each line via xargs to apt install.
@@ -29,9 +29,9 @@ echo "==== Finished apt install packages"
 echo "==== Starting snap install packages"
 echo "======================================================="
 #snaps
-yes | snap install pycharm-community --classic
-yes | snap install gh
-yes | snap install signal-desktop
+yes | sudo snap install pycharm-community --classic
+yes | sudo snap install gh
+yes | sudo snap install signal-desktop
 
 
 
@@ -46,17 +46,17 @@ startmessage "chrome"
 if ! command_exists google-chrome
 then
 	wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-	yes | dpkg -i google-chrome-stable_current_amd64.deb
+	yes | sudo dpkg -i google-chrome-stable_current_amd64.deb
 	rm google-chrome-stable_current_amd64.deb
 fi
 endmessage "chrome"
 
 #Gyazo
 startmessage "gyazo"
-apt install gdebi -y
+sudo apt install gdebi -y
 if ! command_exists gyazo; then
 	yes | curl -s https://packagecloud.io/install/repositories/gyazo/gyazo-for-linux/script.deb.sh | bash
-	apt install gyazo -y
+	sudo apt install gyazo -y
 #	rm gyazo-for-linux
 fi
 endmessage "gyazo"
@@ -93,7 +93,7 @@ startmessage "Skype"
 if ! command_exists skypeforlinux
 then
 	wget https://go.skype.com/skypeforlinux-64.deb
-	apt install ./skypeforlinux-64.deb -y
+	sudo apt install ./skypeforlinux-64.deb -y
 	rm skypeforlinux-64.deb
 fi
 endmessage "skype"
@@ -119,14 +119,14 @@ endmessage "skype"
 #vscode
 startmessage "vscode"
 if ! command_exists code; then
-	apt install software-properties-common apt-transport-https -y
-	apt-mark auto software-properties-common apt-transport-https
+	sudo apt install software-properties-common apt-transport-https -y
+	sudo apt-mark auto software-properties-common apt-transport-https
 	wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
-	install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
+	sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
 	sh -c 'echo "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
-	apt update
+	sudo apt update
 	echo "might get an error with this, I don't know why but it seems to still work"
-	apt install code
+	sudo apt install code
 	rm packages.microsoft.gpg
 fi
 endmessage "vscode"
@@ -135,7 +135,7 @@ endmessage "vscode"
 startmessage "expressvpn"
 if ! command_exists expressvpn ; then
 	wget https://www.expressvpn.works/clients/linux/expressvpn_3.11.0.16-1_amd64.deb
-	apt install ./expressvpn_3.11.0.16-1_amd64.deb -y
+	sudo apt install ./expressvpn_3.11.0.16-1_amd64.deb -y
 	printf "EF9QKZLL89HTGICMRVKVA43" | expressvpn activate
 	#NEED TO FIX THE ABOVE, MAYBE USING EXPECT PACKAGE
 	rm expressvpn_3.11.0.16-1_amd64.deb
@@ -163,16 +163,43 @@ endmessage "expressvpn"
 #fi
 #endmessage "Cisco AnyConnect"
 
-if ! command_exists conda; then
-	wget https://repo.anaconda.com/archive/Anaconda3-2021.11-Linux-x86_64.sh -O ~/Downloads/Anaconda.sh
-	sudo apt install libgl1-mesa-glx libegl1-mesa libxrandr2 libxrandr2 libxss1 libxcursor1 libxcomposite1 libasound2 libxi6 libxtst6 -y
-	sudo chmod +x Anaconda.sh
-	~/Downloads/Anaconda.sh
+startmessage "Nvidia Toolkit"
+if ! command_exists nvcc; then
+	wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin
+	sudo mv cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600
+	wget https://developer.download.nvidia.com/compute/cuda/11.7.1/local_installers/cuda-repo-ubuntu2004-11-7-local_11.7.1-515.65.01-1_amd64.deb
+	#sudo dpkg -i cuda-repo-ubuntu2004-11-7-local_11.7.1-515.65.01-1_amd64.deb
+	#Haven't tested below yet, but is supposed to do same as line above but auto yes
+	#expect -c "spawn sudo dpkg -i cuda-repo-ubuntu2004-11-7-local_11.7.1-515.65.01-1_amd64.deb; expect -exact \"Do you want to continue? \[Y/n\] \"; send -- \"y\""
+	#actually will just use "yes" command:
+	yes | sudo dpkg -i cuda-repo-ubuntu2004-11-7-local_11.7.1-515.65.01-1_amd64.deb
+	sudo cp /var/cuda-repo-ubuntu2004-11-7-local/cuda-*-keyring.gpg /usr/share/keyrings/
+	sudo apt-get update
+	sudo apt-get -y install cuda
 fi
+sudo apt install nvidia-cuda-toolkit
+sudo apt install nvtop
 
+endmessage "Nvidia Toolkit"
+
+
+startmessage "Anaconda"
+if ! command_exists conda; then
+	wget https://repo.anaconda.com/archive/Anaconda3-2021.11-Linux-x86_64.sh -O ./Anaconda.sh
+	sudo apt install libgl1-mesa-glx libegl1-mesa libxrandr2 libxrandr2 libxss1 libxcursor1 libxcomposite1 libasound2 libxi6 libxtst6 -y
+	sudo chmod +x ./Anaconda.sh
+	cp $dir/expectscripts/AnacondaExpect.exp ./AnacondaExpect.exp
+	expect AnacondaExpect.exp
+	#./Anaconda.sh
+	rm ./Anaconda.sh ./AnacondaExpect.exp
+	conda update conda
+	conda update anaconda
+	conda update --all
+fi
+endmessage "Anaconda"
 #Finished
 upgrade_aptget
-apt-get clean
+sudo apt-get clean
 
 # go back to original directory
 cd $dir
