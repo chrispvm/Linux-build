@@ -12,6 +12,7 @@ htop
 git
 #git-credential-manager-core #This just doesn't work for some reason: E: Unable to locate package git-credential-manager-core
 make
+tmux
 
 #===============================
 #OTHER PACKAGES
@@ -26,6 +27,7 @@ compiz-plugins
 #php7.4-cli  #not using this
 # nautilus-open-terminal-here  # Am I using this currently?
 expect
+
 #pdf editing
 img2pdf
 poppler-utils  #probably already installed. For cli pdf editing

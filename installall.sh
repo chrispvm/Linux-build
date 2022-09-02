@@ -11,7 +11,6 @@ else
 	fi
 fi
 sudo echo "Starting installation."
-bash ./installbashrc.sh
 bash ./installprograms.sh
 if [ $setconfs == "y" ]; then
 	bash ./installconfigs.sh

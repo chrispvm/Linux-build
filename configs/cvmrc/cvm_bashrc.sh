@@ -18,8 +18,18 @@ function anyconnectgui(){
 	/opt/cisco/anyconnect/bin/vpnui
 }
 
+
+
 function anyconnect(){
-	printf 'bras4309@OX.AC.UK\nC0nsequences5!\ny' | /opt/cisco/anyconnect/bin/vpn -s connect vpn.ox.ac.uk
+	echo "Logging in to CMU with cpv@andrew.cmu.edu"
+
+	printf 'cpv@andrew.cmu.edu\n' |	/opt/cisco/anyconnect/bin/vpn -s connect andrew.cmu.edu
+}
+
+function sshcvmcmu(){
+	echo "Connecting to cvm's CMU desktop PC remotely using ssh"
+	anyconnect
+	ssh cpv@gs22358.sp.cs.cmu.edu
 }
 
 function exitanyc(){
