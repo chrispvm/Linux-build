@@ -10,10 +10,10 @@ echo "============================================"
 homeusr=$HOME
 echo "home user directory: $homeusr"
 echo "copying over config files"
-cp -r $SCRIPT_DIR/configs/bspwm $homeusr/.config/bspwm
-cp -r $SCRIPT_DIR/configs/cvmrc $homeusr/.config/cvmrc
-cp -r $SCRIPT_DIR/configs/sxhkd $homeusr/.config/sxhkd
-cp -r $SCRIPT_DIR/configs/nvim $homeusr/.config/nvim
+cp -r $SCRIPT_DIR/configs/bspwm $homeusr/.config/
+cp -r $SCRIPT_DIR/configs/cvmrc $homeusr/.config/
+cp -r $SCRIPT_DIR/configs/sxhkd $homeusr/.config/
+cp -r $SCRIPT_DIR/configs/nvim $homeusr/.config/
 
 
 
@@ -28,7 +28,7 @@ if ! pcregrep -qM "$stringsmall" $HOME/.bashrc; then
 fi
 
 
-sed -i "s@sourcedir\=WILLBEREPLACED@sourcedir\=$(pwd)@" $HOME/.config/cvmrc/.cvm_bashrc.sh
+sed -i "s@sourcedir\=WILLBEREPLACED@sourcedir\=$(pwd)@" $HOME/.config/cvmrc/cvm_bashrc.sh
 
 
 
