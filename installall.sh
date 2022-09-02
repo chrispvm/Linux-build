@@ -10,13 +10,13 @@ else
 		exit
 	fi
 fi
-
+sudo echo "Starting installation."
 bash ./installbashrc.sh
-sudo bash ./installprograms.sh
+bash ./installprograms.sh
 if [ $setconfs == "y" ]; then
 	bash ./installconfigs.sh
 fi
-bash ./installpythonpackages.sh
+bash ./pythonsetup/installpythonpackages.sh
 
 sudo bash ./setdefaults.sh
 #bash ./setup_eduroam_oxford.sh

@@ -1,7 +1,7 @@
 .PHONY: run install pullconfigs installbashrc
 
 run: 
-	@echo "To install this, command make install. This will overwrite all config paths added to this repo."
+	@echo " make install: installs everyhing\n make installbashrc: only installs the bashrc config files\n make pullconfigs: pulls all the config files from this pc into the repo"
 
 install: 
 	@bash installall.sh
@@ -9,8 +9,8 @@ install:
 pullconfigs:
 	@bash pullconfigs.sh
 
-installbashrc:
-	@bash installbashrc.sh
+installconfigs:
+	@bash installconfigs.sh
 
 
 

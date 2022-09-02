@@ -44,8 +44,8 @@ cpu-checker
 texlive-full 
 
 #cuda toolkit for pytorch with GPU:
-nvidia-cuda-toolkit 
-nvtop 
+#nvidia-cuda-toolkit 
+#nvtop 
 
 
 #Shell Extensions:
