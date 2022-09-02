@@ -50,7 +50,7 @@ nvtop
 
 #Shell Extensions:
 gnome-shell-extension-no-annoyance
-
+gnome-shell-extensions
 
 python3
 jupyter-core
@@ -63,3 +63,4 @@ fzf
 parallel
 pipenv
 baobab
+pdftk
