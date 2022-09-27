@@ -1,0 +1,14 @@
+{
+        "python.analysis.extraPaths": [
+                "app",
+                "/home/chris/Dropbox/programming/ML"
+        ],
+        "terminal.integrated.inheritEnv": false,
+        "editor.minimap.enabled": false,
+        "window.zoomLevel": 1,
+        "editor.renderWhitespace": "all",
+        "workbench.activityBar.visible": false,
+        "security.workspace.trust.untrustedFiles": "open"
+}
+
+

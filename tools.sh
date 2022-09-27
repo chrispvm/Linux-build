@@ -41,14 +41,14 @@ appendifnotthere (){
 #	echo "copying $SCRIPT_DIR/configs/$base to $dir/$base"
 #	cp -r $SCRIPT_DIR/configs/$base $dir/$base
 #}
-pullconfig() {
-	dir=$(dirname $1)
-	base=$(basename $1)
-	cp -r $dir/$base $SCRIPT_DIR/configs/$base
-}
+#pullconfig() {
+#	dir=$(dirname $1)
+#	base=$(basename $1)
+#	cp -r $dir/$base $SCRIPT_DIR/configs/$base
+#}
 aptinstallpackage() {
         startmessage $1
         sudo apt install $1
 }
 
-export -f command_exists startmessage endmessage upgrade_aptget cleancomments appendifnotthere pullconfig aptinstallpackage
+export -f command_exists startmessage endmessage upgrade_aptget cleancomments appendifnotthere aptinstallpackage

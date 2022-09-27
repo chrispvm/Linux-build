@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sourcedir=WILLBEREPLACED
+sourcedir=/home/chris/Downloads/Linux-build
 
 function mynotebooks() {
 	cd ~/Dropbox/programming/ML/cvmdl/notebooks

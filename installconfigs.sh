@@ -14,7 +14,8 @@ cp -r $SCRIPT_DIR/configs/bspwm $homeusr/.config/
 cp -r $SCRIPT_DIR/configs/cvmrc $homeusr/.config/
 cp -r $SCRIPT_DIR/configs/sxhkd $homeusr/.config/
 cp -r $SCRIPT_DIR/configs/nvim $homeusr/.config/
-
+cp -r $SCRIPT_DIR/configs/vscode/keybindings.json $homeusr/.config/Code/User/
+cp -r $SCRIPT_DIR/configs/vscode/settings.json $homeusr/.config/Code/User/
 
 
 
