@@ -95,7 +95,7 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
-
+alias cvmrc='cat $HOME/.config/cvmrc/cvm_bashrc.sh'
 
 #alias search="((xdg-open \"\$(fzf)\" & disown) >> /dev/null) & disown && exit"
 
