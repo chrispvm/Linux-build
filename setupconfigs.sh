@@ -8,6 +8,6 @@ cat $SCRIPT_DIR/configlist.txt | xargs -t -d '\n' -I% installconfig %
 
 code --install-extension "asvetliakov.vscode-neovim"
 code --install-extension "autopep8"
-
+code --install-extension "james-yu.latex-workshop"
 
 

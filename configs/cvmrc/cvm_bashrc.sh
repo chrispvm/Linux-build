@@ -90,7 +90,7 @@ alias term="gnome-terminal"
 alias python="python3"
 
 
-alias ls="ls --color=auto --group-directories-first"
+alias ls="ls --color --group-directories-first"
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'

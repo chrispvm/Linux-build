@@ -28,6 +28,13 @@ if ! pcregrep -qM "$stringsmall" $HOME/.bashrc; then
         printf  "$string" >> $HOME/.bashrc
 fi
 
+touch $HOME/.bash_profile
+stringsmall="~/.bashrc"
+string="\n#CUSTOM BASHRC CALL BY CVM\nif [ -f ~/.bashrc ]; then\n      . ~/.bashrc\nfi"
+if ! pcregrep -qM "$stringsmall" $HOME/.bash_profile; then
+        printf  "$string" >> $HOME/.bash_profile
+fi
+
 
 sed -i "s@sourcedir\=WILLBEREPLACED@sourcedir\=$(pwd)@" $HOME/.config/cvmrc/cvm_bashrc.sh
 
