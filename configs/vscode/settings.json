@@ -7,9 +7,8 @@
         "editor.minimap.enabled": false,
         "window.zoomLevel": 1,
         "editor.renderWhitespace": "all",
-        "workbench.activityBar.visible": false,
         "security.workspace.trust.untrustedFiles": "open",
-        "python.defaultInterpreterPath": "/usr0/home/cpv/anaconda3/bin/python3"
+        "python.defaultInterpreterPath": "/usr0/home/cpv/anaconda3/bin/python"
 }
 
 
