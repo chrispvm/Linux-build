@@ -19,4 +19,3 @@ bash ./pythonsetup/installpythonpackages.sh
 
 sudo bash ./setdefaults.sh
 #bash ./setup_eduroam_oxford.sh
-sudo bash ./setsettings.sh
