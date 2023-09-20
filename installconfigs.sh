@@ -42,9 +42,9 @@ sed -i "s@sourcedir\=WILLBEREPLACED@sourcedir\=$(pwd)@" $HOME/.config/cvmrc/cvm_
 
 #appendifnotthere "export PATH=\"\$PATH:/$HOME/.local/bin\"" ~/.profile
 
-#code --install-extension "asvetliakov.vscode-neovim"
-#code --install-extension "autopep8"
-
+code --install-extension "asvetliakov.vscode-neovim"
+code --install-extension "autopep8"
+code --install-extension "james-yu.latex-workshop"
 
 echo "============================================"
 echo "===== Finished installconfigs.sh"
