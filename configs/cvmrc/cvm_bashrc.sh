@@ -96,7 +96,7 @@ alias la='ls -A'
 alias l='ls -CF'
 
 alias cvmrc='cat $HOME/.config/cvmrc/cvm_bashrc.sh'
-
+alias glpsol='~/Documents/CMU15326compmicro/glpk/glpk-5.0/examples/glpsol'
 #alias search="((xdg-open \"\$(fzf)\" & disown) >> /dev/null) & disown && exit"
 
 function search(){

@@ -15,3 +15,4 @@ cp -r $homeusr/.config/nvim $SCRIPT_DIR/configs/
 cp -r $homeusr/.config/Code/User/keybindings.json $SCRIPT_DIR/configs/vscode/
 cp -r $homeusr/.config/Code/User/settings.json $SCRIPT_DIR/configs/vscode/
 
+dconf dump /org/gnome/desktop/wm/keybindings/ > ./configs/gnome/dconf-keybindings.ini
