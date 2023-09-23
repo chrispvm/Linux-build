@@ -54,6 +54,11 @@ texlive-full
 #Shell Extensions:
 gnome-shell-extension-no-annoyance
 gnome-shell-extensions
+gnome-shell-extension-dash-to-panel 
+gnome-tweaks 
+adwaita-icon-theme-full
+
+
 
 python3
 jupyter-core

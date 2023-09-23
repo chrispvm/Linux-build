@@ -50,5 +50,14 @@ aptinstallpackage() {
         startmessage $1
         sudo apt install $1
 }
+load_dconf() {	
+	file_name=`echo $1 | sed 's/\//./g'`
+	dconf load /$1/ < ./configs/dconf/$file_name
+}
+dump_dconf() {
+	file_name=`echo $1 | sed 's/\//./g'`
+	dconf dump /$1/ > ./configs/dconf/$file_name
+}
+
 
 export -f command_exists startmessage endmessage upgrade_aptget cleancomments appendifnotthere aptinstallpackage

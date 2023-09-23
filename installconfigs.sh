@@ -47,11 +47,19 @@ code --install-extension "autopep8"
 code --install-extension "james-yu.latex-workshop"
 
 
-
+# install gnome settings and shell extensions and keybindings and so on:
+#dconf load / < ./configs/dconf_settings.ini
+load_dconf /org/gnome/
+# stuff below is when I did this manually for each thing:
 # Shell extensions
-gnome-extensions enable noannoyance@sindex.com
+#gnome-extensions enable noannoyance@sindex.com
+#gnome-extensions enable launch-new-instance@gnome-shell-extensions.gcampax.github.com
+#gnome-extensions enable dash-to-panel@jderose9.github.com
+#gnome-extensions enable drive-menu@gnome-shell-extensions.gcampax.github.com
 
-dconf load /org/gnome/desktop/wm/keybindings/ < ./configs/gnome/dconf-settings.ini
+#load_dconf org/gnome/desktop/wm/keybindings
+#load_dconf org.gnome.shell.extensions.dash-to-panel
+
 
 git config --global user.email "c.vanmerwijk@gmail.com"
 git config --global credential.helper store # This makes it so that my github password/authentication token gets automatically stored on the first login.

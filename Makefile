@@ -6,10 +6,10 @@ run:
 install: 
 	@bash installall.sh
 
-pullconfigs.sh:
+pullconfigs:
 	@bash pullconfigs.sh
 
-installconfigs.sh:
+installconfigs:
 	@bash installconfigs.sh
 
 
