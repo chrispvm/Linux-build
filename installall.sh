@@ -10,7 +10,7 @@ else
 		exit
 	fi
 fi
-sudo echo "Starting installation."
+echo "Starting installation."
 bash ./installprograms.sh
 if [ $setconfs == "y" ]; then
 	bash ./installconfigs.sh
