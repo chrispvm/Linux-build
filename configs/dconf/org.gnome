@@ -79,7 +79,7 @@ application-id='org.gnome.tweaks.desktop'
 application-id='update-manager.desktop'
 
 [desktop/peripherals/keyboard]
-numlock-state=false
+numlock-state=true
 
 [desktop/peripherals/mouse]
 speed=-0.13235294117647056
@@ -107,6 +107,10 @@ switch-to-workspace-up=['<Shift><Super>Tab']
 
 [desktop/wm/preferences]
 button-layout=':minimize,maximize,close'
+
+[eog/view]
+background-color='rgb(0,0,0)'
+use-background-color=true
 
 [evince]
 document-directory=@ms 'file:///usr0/home/cpv/Dropbox/3Personal/Medisch/CMU'
@@ -136,7 +140,7 @@ active-plugins=['time', 'filebrowser', 'modelines', 'docinfo', 'spell']
 [gedit/plugins/filebrowser]
 root='file:///'
 tree-view=true
-virtual-root='file:///usr0/home/cpv/Documents/CMU15326compmicro/CS323%20--%20recitation%20notes/CS%20323%20Homework%201'
+virtual-root='file:///usr0/home/cpv/Downloads'
 
 [gedit/preferences/ui]
 show-tabs-mode='auto'
@@ -165,6 +169,7 @@ default-compression-format='zip'
 [nautilus/preferences]
 default-folder-viewer='list-view'
 search-filter-time-type='last_modified'
+search-view='list-view'
 
 [nautilus/window-state]
 initial-size=(2266, 1169)
@@ -181,7 +186,7 @@ hinting='slight'
 app-picker-view=uint32 1
 disable-user-extensions=false
 disabled-extensions=@as []
-enabled-extensions=['ubuntu-dock@ubuntu.com', 'noannoyance@sindex.com', 'dash-to-panel@jderose9.github.com', 'kaas', 'launch-new-instance@gnome-shell-extensions.gcampax.github.com', 'drive-menu@gnome-shell-extensions.gcampax.github.com']
+enabled-extensions=['noannoyance@sindex.com', 'dash-to-panel@jderose9.github.com', 'kaas', 'launch-new-instance@gnome-shell-extensions.gcampax.github.com', 'drive-menu@gnome-shell-extensions.gcampax.github.com', 'ubuntu-dock@ubuntu.com']
 
 [shell/extensions/dash-to-dock]
 dock-fixed=true

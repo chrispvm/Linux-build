@@ -8,7 +8,8 @@
         "window.zoomLevel": 1,
         "editor.renderWhitespace": "all",
         "security.workspace.trust.untrustedFiles": "open",
-        "python.defaultInterpreterPath": "/usr0/home/cpv/anaconda3/bin/python"
+        "python.defaultInterpreterPath": "/usr0/home/cpv/anaconda3/bin/python",
+        "CodeGPT.model": "gpt-4"
 }
 
 

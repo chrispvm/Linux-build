@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =3
+let g:netrw_dirhistcnt =4
+let g:netrw_dirhist_4='/usr0/home/cpv/Documents/CMU15326compmicro/vincefolder'
 let g:netrw_dirhist_3='/usr0/home/cpv/Downloads/Linux-build/configs'
 let g:netrw_dirhist_2='/home/chris/Downloads/Linux-build/config'
 let g:netrw_dirhist_1='/home/chris/Dropbox/programming/ML/cvmdl/.vscode'

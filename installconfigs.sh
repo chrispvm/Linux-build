@@ -45,7 +45,7 @@ sed -i "s@sourcedir\=WILLBEREPLACED@sourcedir\=$(pwd)@" $HOME/.config/cvmrc/cvm_
 code --install-extension "asvetliakov.vscode-neovim"
 code --install-extension "autopep8"
 code --install-extension "james-yu.latex-workshop"
-
+code --install-extension "DanielSanMedium.dscodegpt"
 
 # install gnome settings and shell extensions and keybindings and so on:
 #dconf load / < ./configs/dconf_settings.ini
